@@ -1,21 +1,26 @@
-function filterArray(numbers, value) {
-  
-  const filteredNumbers = [];
+const profile = {
+  username: 'Jacob',
+  playTime: 300,
+};
 
-  for (let i = 0; i < numbers.length; i += 1) {
-    const number = numbers[i];
+profile.getInfo = function() {
+  return `${this.username} has ${this.playTime} active hours!`;
+};
 
-    if (number > value) {
-      filteredNumbers.push(number);
-    }
-  }
+profile.changeUsername = function(newUsername) {
+  this.username = newUsername;
+};
 
-  return filteredNumbers;
-  
-}
+profile.updatePlayTime = function(additionalHours) {
+  this.playTime += additionalHours;
+};
 
-console.log(filterArray([1, 2, 3, 4, 5], 3));
-console.log(filterArray([1, 2, 3, 4, 5], 4));
-console.log(filterArray([1, 2, 3, 4, 5], 5));
-console.log(filterArray([12, 24, 8, 41, 76], 38));
-console.log(filterArray([12, 24, 8, 41, 76], 20)); 
+
+
+console.log(profile.getInfo());
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo());
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo());
